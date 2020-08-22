@@ -1,3 +1,7 @@
+[[bin]]
+name = "etf_capital_profit_calc"
+path = "src/main.rs"
+
 fn main() {
     let years = 20;
     let ret_ratio = 0.03;
