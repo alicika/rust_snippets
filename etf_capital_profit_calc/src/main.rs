@@ -63,3 +63,22 @@ fn main() {
         etf_after_tax_value - shintaku_after_tax_value
     );
 }
+
+//extern crate reqwest; // 0.10.6 // 0.10.6
+//
+//
+//fn res() {
+//    match reqwest::get("http://youtube/local/hello") {
+//        Ok(mut response) => {
+//            if response.status() ==reqwest::StatusCode::Ok {
+//                match response.text() {
+//                    Ok(text) => println!("Response Text {}", text),
+//                    Err(_) => println!("Could not read response text!"),
+//                }
+//            } else {
+//                println!("response was not 200 Ok.");
+//            }
+//        }
+//    }
+//    Err(_) => println!("Could not make the request!")
+//}
