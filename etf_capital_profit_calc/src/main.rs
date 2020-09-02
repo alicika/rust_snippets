@@ -1,6 +1,3 @@
-[[bin]]
-name = "etf_capital_profit_calc"
-path = "src/main.rs"
 
 fn main() {
     let years = 20;
@@ -82,3 +79,6 @@ fn main() {
 //    }
 //    Err(_) => println!("Could not make the request!")
 //}
+[[bin]]
+name = "etf"
+path = "src/main.rs"

@@ -1,5 +1,5 @@
 [package]
-name = "slouch"
+name = "etf"
 version = "0.1.0"
 authors = ["alicika <52126032+alicika@users.noreply.github.com>"]
 edition = "2018"
@@ -9,3 +9,7 @@ edition = "2018"
 [dependencies]
 actix-web = "2.0.0"
 actix-rt = "1.1.1"
+
+[[bin]]
+name = "etf"
+path = "src/main.rs"

@@ -1,5 +1,5 @@
 [package]
-name = "etf_capital_profit_calc"
+name = "etf"
 version = "0.1.0"
 authors = ["alicika <52126032+alicika@users.noreply.github.com>"]
 edition = "2018"
@@ -11,5 +11,5 @@ actix-web = "2.0.0"
 actix-rt = "1.1.1"
 
 [[bin]]
-name = "etf_capital_profit_calc"
+name = "etf"
 path = "src/main.rs"
