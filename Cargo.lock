@@ -488,6 +488,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "etf"
+version = "0.1.0"
+dependencies = [
+ "actix-rt",
+ "actix-web",
+]
+
+[[package]]
 name = "failure"
 version = "0.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1243,14 +1251,6 @@ name = "slab"
 version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c111b5bd5695e56cffe5129854aa230b39c93a305372fdbb2668ca2394eea9f8"
-
-[[package]]
-name = "slouch"
-version = "0.1.0"
-dependencies = [
- "actix-rt",
- "actix-web",
-]
 
 [[package]]
 name = "smallvec"
