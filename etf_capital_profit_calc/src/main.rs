@@ -109,11 +109,3 @@ fn main() {
         },
     };
 }
-
-use std::io,
-use std::io::read,
-use std::fs::file;
-
-fn read_username_from_file() -> Result<String, io::Error> {
-let mujina = String_from("a");
-}
