@@ -12,4 +12,4 @@ actix-rt = "1.1.1"
 
 [[bin]]
 name = "etf"
-path = "src/main.rs"
+path = "../main.rs"
