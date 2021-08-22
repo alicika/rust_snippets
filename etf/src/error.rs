@@ -18,7 +18,6 @@ impl fmt::Display for AppError {
     }
 }
 
-// for debugging output
 impl fmt::Debug for AppError {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(
@@ -37,7 +36,6 @@ impl From<io::Error> for AppError {
     }
 }
 
-// Implement std::convert::From for AppError; from num::ParseIntError
 impl From<num::ParseIntError> for AppError {
     fn from(error: num::ParseIntError) -> Self {
         AppError {
@@ -48,12 +46,11 @@ impl From<num::ParseIntError> for AppError {
 }
 
 
-// example use to
 fn main() -> Result<(), AppError> {
-    let mut file = File::open("no.txt")?; // generates an io::Error, if can not open the file and converts to an AppError
+    let mut file = File::open("notexist.txt")?;
 
     let mut content = String::new();
-    file.read_to_string(&mut content)?; // generates an io::Error, if can not read file content and converts to an AppError
+    file.read_to_string(&mut content)?;
 
     let _number: usize;
     _number = content.parse()?; // generates num::ParseIntError, if can not convert file content to usize and converts to an AppError
