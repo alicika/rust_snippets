@@ -11,6 +11,10 @@ fn increasing<'a>(slice: &'a [i32]) -> &'a [i32] {
 
 fn main() {
     let vec = vec![2, 4, 7, 8, 6, 3, 5];
-    let result = increasing(&vec);
+    let result;
+    {
+        let slice = &vec[..];
+        result = increasing(slice);
+    }
     assert_eq!(result, &[2, 4, 7, 8]);
 }
