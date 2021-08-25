@@ -16,5 +16,11 @@ fn main() {
         let slice = &vec[..];
         result = increasing(slice);
     }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
     assert_eq!(result, &[2, 4, 7, 8]);
 }
