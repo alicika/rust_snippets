@@ -112,7 +112,7 @@ fn get_ports(full: bool) -> Box<dyn Iterator<Item = u16>> {
         Box::new(ports::MOST_COMMON_PORTS_1002.to_owned().into_iter())
     }
 }
-/*
+
 #[cfg(test)]
 mod test {
     use super::*;
@@ -134,4 +134,3 @@ mod test {
         )
     }
 }
-*/
