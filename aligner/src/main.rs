@@ -1,4 +1,4 @@
-fn increasing<'a>(slice: &'a [i32]) -> &'a [i32] {
+pub fn increasing<'a>(slice: &'a [i32]) -> &'a [i32] {
     let mut ret: &'a [i32] = slice;
     for i in 0..slice.len() - 1 {
         if slice[i] >= slice[i + 1] {

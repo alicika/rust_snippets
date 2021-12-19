@@ -1335,6 +1335,12 @@ dependencies = [
 [[package]]
 name = "rust_snippets"
 version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "futures",
+ "tokio",
+]
 
 [[package]]
 name = "rustc-demangle"

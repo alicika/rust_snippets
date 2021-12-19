@@ -1,0 +1,157 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'aligner'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=aligner",
+                    "--package=aligner"
+                ],
+                "filter": {
+                    "name": "aligner",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'aligner'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=aligner",
+                    "--package=aligner"
+                ],
+                "filter": {
+                    "name": "aligner",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'etf'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=etf",
+                    "--package=etf"
+                ],
+                "filter": {
+                    "name": "etf",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'etf'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=etf",
+                    "--package=etf"
+                ],
+                "filter": {
+                    "name": "etf",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'portscanner'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=portscanner",
+                    "--package=portscanner"
+                ],
+                "filter": {
+                    "name": "portscanner",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'portscanner'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=portscanner",
+                    "--package=portscanner"
+                ],
+                "filter": {
+                    "name": "portscanner",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'rust_snippets'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=rust_snippets",
+                    "--package=rust_snippets"
+                ],
+                "filter": {
+                    "name": "rust_snippets",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'rust_snippets'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=rust_snippets",
+                    "--package=rust_snippets"
+                ],
+                "filter": {
+                    "name": "rust_snippets",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

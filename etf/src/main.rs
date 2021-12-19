@@ -1,3 +1,4 @@
+mod error;
 
 fn main() {
     let years = 20;
@@ -59,53 +60,4 @@ fn main() {
         "差 (ETF - 投資信託): {:.0}",
         etf_after_tax_value - shintaku_after_tax_value
     );
-}
-
-//extern crate reqwest; // 0.10.6 // 0.10.6
-//
-//
-//fn res() {
-//    match reqwest::get("http://youtube/local/hello") {
-//        Ok(mut response) => {
-//            if response.status() ==reqwest::StatusCode::Ok {
-//                match response.text() {
-//                    Ok(text) => println!("Response Text {}", text),
-//                    Err(_) => println!("Could not read response text!"),
-//                }
-//            } else {
-//                println!("response was not 200 Ok.");
-//            }
-//        }
-//    }
-//    Err(_) => println!("Could not make the request!")
-//}
-[[bin]]
-name = "etf"
-path = "src/main.rs"
-
-
-fn main() {
-    let f = File::open("hello.txt");
-
-    let f = match f {
-        Ok(file) => file,
-        Err(ref error) if error.kind() == ErrorKind::NotFound => {
-            match File::create("hello.txt") {
-                Ok(fc) => fc,
-                Err(e) => {
-                    panic!(
-                        //ファイルを作成しようとしましたが、問題がありました
-                        "Tried to create file but there was a problem: {:?}",
-                        e
-                    )
-                },
-            }
-        },
-        Err(error) => {
-            panic!(
-                "There was a problem opening the file: {:?}",
-                error
-            )
-        },
-    };
 }
