@@ -23,12 +23,16 @@ async fn main() -> Result<(), reqwest::Error> {
     };
 
     let resp = t
-        .get(url)
+        .get(&url)
         .send()
         .await?
         .json::<HashMap<String, String>>()
         .await?;
     println!("{:#?}", resp);
+
+    let token = std::env::var("TOKEN").unwrap();
+    let token = format!("Bearer {}", token);
+    let client = reqwest::Client::new().get(&url).header("authorization", token);
 
     Ok(())
 }
