@@ -12,4 +12,4 @@ anyhow = "1.0.43"
 futures = "0.3.16"
 
 [workspace]
-members = ["aligner", "etf", "portscanner", "api_reqwest"]
+members = ["aligner", "etf", "portscanner", "api_reqwest", lambdatest]
