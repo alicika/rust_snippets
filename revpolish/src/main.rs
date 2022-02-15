@@ -1,5 +1,5 @@
-use env;
 use clap::{App, Arg};
+use env;
 
 fn main() {
     let matches = App::new("My RPN program")

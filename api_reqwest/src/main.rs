@@ -32,7 +32,9 @@ async fn main() -> Result<(), reqwest::Error> {
 
     let token = std::env::var("TOKEN").unwrap();
     let token = format!("Bearer {}", token);
-    let client = reqwest::Client::new().get(&url).header("authorization", token);
+    let client = reqwest::Client::new()
+        .get(&url)
+        .header("authorization", token);
 
     Ok(())
 }

@@ -1642,6 +1642,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "revpolish"
+version = "0.1.0"
+dependencies = [
+ "clap",
+]
+
+[[package]]
 name = "rust_snippets"
 version = "0.1.0"
 dependencies = [
