@@ -1,7 +1,12 @@
 use clap::{App, Arg};
 use env;
+use std::fs::File;
+use std::io:{BufRead, BufReader}
 
 fn main() {
+    let f = File::open(path).unwrap();
+    let _reader = BufReader::new(f);
+
     let matches = App::new("My RPN program")
         .version("0.1.0")
         .author("Me")
