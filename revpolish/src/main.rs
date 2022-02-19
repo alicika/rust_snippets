@@ -1,30 +1,33 @@
-use clap::{App, Arg};
-use env;
+use clap::Clap;
 use std::fs::File;
-use std::io:{BufRead, BufReader}
+use std::io::{BufRead, BufReader};
 
+#[derive(Clap, Debug)
+#[clap(
+    name = name = "My RPN Program",
+    version = "0.1.0",
+    author = "Your name",
+    about = "about"
+)]
+struct Opts{
+    #[clap(short, long)]
+    verbose: bool,
+
+    #[clap(name = "FILE")]
+    formula_file: Option<String>,
+}
 fn main() {
-    let f = File::open(path).unwrap();
-    let _reader = BufReader::new(f);
-
-    let matches = App::new("My RPN program")
-        .version("0.1.0")
-        .author("Me")
-        .about("sample RPN calculator")
-        .arg(
-            Arg::new("formula_file")
-                .about("Formula written in RPN")
-                .value_name("FILE")
-                .index(1)
-                .required(false),
-        )
-        .get_matches();
-
-    match matches.value_of("formula_file") {
-        Some(file) => println!("File specified: {}", file),
-        None => println!("No file specified."),
-    }
-
-    let verbose = matches.is_present("verbose");
+    let opts = Opts::parse();
+    
+    if let Some(path) = opts.formula_file {
+        let f = File::open(path).unwrap();
+        let reader = BufReader::new(f);
+        
+        for line in reader.lines() {
+            let line = line.unwrap()
+            println!("{}", line);
+        }
+    } else {
     println!("Is verbosity specified?: {}", verbose);
+    }
 }
