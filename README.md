@@ -1,7 +1,7 @@
 # rust_snippets
-Mainly consisted of command-line based app.
-Currently, Foreign ETF profit calculation app is available!
+Mainly consists of command-line based app.
+Now it summarizes several rust projects in one repo.
 
-# what this app provides you
+# why this repo exists for 
 The ETF-calc app.
-a
+>>>>>>> Stashed changes
