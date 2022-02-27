@@ -1,15 +1,15 @@
 use clap::Clap;
 use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::io::{stdin, BufRead, BufReader};
 
-#[derive(Clap, Debug)
+#[derive(Clap, Debug)]
 #[clap(
     name = name = "My RPN Program",
     version = "0.1.0",
     author = "Your name",
     about = "about"
 )]
-struct Opts{
+struct Opts {
     #[clap(short, long)]
     verbose: bool,
 
@@ -24,7 +24,7 @@ fn main() {
         let reader = BufReader::new(f);
         run(reader, opts.verbose);
     } else {
-    println!("Is verbosity specified?: {}", verbose);
+        println!("Is verbosity specified?: {}", verbose);
     }
 }
 
