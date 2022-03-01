@@ -1,6 +1,8 @@
 # rust_snippets
-Mainly consists of command-line based app.
+
+Mainly consists of command-line based app. <br>
 Now it summarizes several rust projects in one repo.
+
 
 # Contents
 <ul> 
