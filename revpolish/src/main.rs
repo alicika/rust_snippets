@@ -1,6 +1,8 @@
-use clap::Clap;
 use std::fs::File;
 use std::io::{stdin, BufRead, BufReader};
+
+#[macro_use]
+use clap::Clap;
 
 #[derive(Clap, Debug)]
 #[clap(
