@@ -1,8 +1,6 @@
 use std::fs::File;
 use std::io::{stdin, BufRead, BufReader};
-
-#[macro_use]
-use clap::Clap;
+use clap;
 
 #[derive(Clap, Debug)]
 #[clap(
@@ -26,7 +24,9 @@ fn main() {
         let reader = BufReader::new(f);
         run(reader, opts.verbose);
     } else {
-        println!("Is verbosity specified?: {}", verbose);
+        let stdin = stdin();
+        let reader = stdin.lock();
+        run(reader, opts.verbose);
     }
 }
 
