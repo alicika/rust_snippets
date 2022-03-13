@@ -91,7 +91,21 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test() {
-        assert_eq!(2*2, 4);
+    fn test_ok() {
+        let calc = RPNCalculator::new(false);
+        assert_eq!(calc.eval("-50"), -50);
+    
+        assert_eq!(calc.eval("2 3 +"), 5);
+        assert_eq!(calc.eval("2 3 -"), -1);
+        assert_eq!(calc.eval("2 3 *"), 6);
+        assert_eq!(calc.eval("2 3 /"), 0);
+        assert_eq!(calc.eval("2 3 %"), 2);
+
+    #[test]
+    #[should_panic]
+    fn test_ng() {
+        let calc = RPNCalculator::new(false);
+        calc.eval("1 1 ^");
+        }
     }
 }
