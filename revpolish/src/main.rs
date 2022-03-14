@@ -1,10 +1,10 @@
-use clap::Clap;
+use clap_v3::Clap;
 use std::fs::File;
 use std::io::{stdin, BufRead, BufReader};
 
 #[derive(Clap, Debug)]
 #[clap(
-    name = name = "My RPN Program",
+    name = "My RPN Program",
     version = "0.1.0",
     author = "Your name",
     about = "about"
