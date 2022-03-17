@@ -1,10 +1,10 @@
-use clap::Clap;
+use clap_v3::Clap;
 use std::fs::File;
 use std::io::{stdin, BufRead, BufReader};
 
 #[derive(Clap, Debug)]
 #[clap(
-    name = name = "My RPN Program",
+    name = "My RPN Program",
     version = "0.1.0",
     author = "Your name",
     about = "about"
@@ -83,5 +83,29 @@ fn run<R: BufRead>(reader: R, verbose: bool) {
         let line = line.unwrap();
         let answer = calc.eval(&line);
         println!("{}", answer);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_ok() {
+        let calc = RPNCalculator::new(false);
+        assert_eq!(calc.eval("-50"), -50);
+    
+        assert_eq!(calc.eval("2 3 +"), 5);
+        assert_eq!(calc.eval("2 3 -"), -1);
+        assert_eq!(calc.eval("2 3 *"), 6);
+        assert_eq!(calc.eval("2 3 /"), 0);
+        assert_eq!(calc.eval("2 3 %"), 2);
+
+    #[test]
+    #[should_panic]
+    fn test_ng() {
+        let calc = RPNCalculator::new(false);
+        calc.eval("1 1 ^");
+        }
     }
 }
