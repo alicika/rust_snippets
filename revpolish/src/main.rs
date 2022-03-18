@@ -106,6 +106,7 @@ mod tests {
     fn test_ng() {
         let calc = RPNCalculator::new(false);
         calc.eval("1 1 ^");
+        unreachable!();
         }
     }
 }
