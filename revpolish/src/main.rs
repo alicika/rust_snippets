@@ -1,4 +1,5 @@
 use clap::Parser;
+use anyhow::{Context, Result};
 use std::fs::File;
 use std::io::{stdin, BufRead, BufReader};
 
@@ -86,6 +87,17 @@ fn run<R: BufRead>(reader: R, verbose: bool) {
     }
 }
 
+fn get_int_from_file() -> Result<i32, String> {
+    let path = "number.txt";
+    let num_str = std::fs::read_to_string(path).with_context(|| format!("Failed to read string from {}", path))?;
+
+    num_str
+        .trim()
+        .parse::<i32>()
+        .map(|t| t * 2)
+        .map_err(|e| e.to_string())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -94,19 +106,20 @@ mod tests {
     fn test_ok() {
         let calc = RPNCalculator::new(false);
         assert_eq!(calc.eval("-50"), -50);
-    
+
         assert_eq!(calc.eval("2 3 +"), 5);
         assert_eq!(calc.eval("2 3 -"), -1);
         assert_eq!(calc.eval("2 3 *"), 6);
         assert_eq!(calc.eval("2 3 /"), 0);
         assert_eq!(calc.eval("2 3 %"), 2);
 
-    #[test]
-    #[should_panic]
-    fn test_ng() {
-        let calc = RPNCalculator::new(false);
-        calc.eval("1 1 ^");
-        unreachable!();
+        #[test]
+        #[should_panic]
+        fn test_ng() {
+            let calc = RPNCalculator::new(false);
+            calc.eval("1 1 ^");
+            // as long as RPNCalculator.eval returns panic for an inappropreate input
+            unreachable!();
         }
     }
 }
