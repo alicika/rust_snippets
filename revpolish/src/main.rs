@@ -113,6 +113,7 @@ mod tests {
         assert_eq!(calc.eval("2 3 /"), 0);
         assert_eq!(calc.eval("2 3 %"), 2);
 
+<<<<<<< HEAD
         #[test]
         #[should_panic]
         fn test_ng() {
@@ -120,6 +121,15 @@ mod tests {
             calc.eval("1 1 ^");
             // as long as RPNCalculator.eval returns panic for an inappropreate input
             unreachable!();
+=======
+    #[test]
+    #[should_panic]
+    fn test_ng() {
+        let calc = RPNCalculator::new(false);
+        calc.eval("1 1 ^");
+        // as long as RPNCalculator.eval returns panic for an inappropreate input
+        unreachable!();
+>>>>>>> a0d366de6a72350efa0bbf24c556c3fcae18a20c
         }
     }
 }
