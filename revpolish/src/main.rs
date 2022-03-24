@@ -60,37 +60,43 @@ impl RPNCalculator {
         }
         ensure!(stack.len() == 1, "invalid syntax");
         Ok(stack[0])
+    }
 }
 
-fn main() {
+fn main() -> Result<()> {
     let opts = Opts::parse();
 
     if let Some(path) = opts.formula_file {
         let f = File::open(path).unwrap();
         let reader = BufReader::new(f);
-        run(reader, opts.verbose);
+        run(reader, opts.verbose)
     } else {
         let stdin = stdin();
         let reader = stdin.lock();
-        run(reader, opts.verbose);
+        run(reader, opts.verbose)
     }
 }
 
-fn run<R: BufRead>(reader: R, verbose: bool) {
+fn run<R: BufRead>(reader: R, verbose: bool) -> Result<()> {
     let calc = RPNCalculator::new(verbose);
 
     for line in reader.lines() {
-        let line = line.unwrap();
-        let answer = calc.eval(&line);
-        println!("{}", answer);
+        let line = line?;
+        match calc.eval(&line) {
+            Ok(answer) => println!("{}", answer),
+            Err(e) => eprintln!("{:#?}", e),
+        }
     }
+    Ok(())
 }
 
+#[allow(unused)]
 fn get_int_from_file() -> Result<i32, String> {
     let path = "number.txt";
-    let num_str = std::fs::read_to_string(path).with_context(|| format!("Failed to read string from {}", path))?;
+    let num_str = std::fs::read_to_string(path).with_context(|| format!("Failed to read string from {}", path));
 
     num_str
+        .unwrap()
         .trim()
         .parse::<i32>()
         .map(|t| t * 2)
@@ -104,31 +110,17 @@ mod tests {
     #[test]
     fn test_ok() {
         let calc = RPNCalculator::new(false);
-        assert_eq!(calc.eval("-50"), -50);
+        assert_eq!(calc.eval("-50").unwrap(), -50);
+        assert_eq!(calc.eval("2 3 +").unwrap(), 5);
+        assert_eq!(calc.eval("2 3 -").unwrap(), -1);
+        assert_eq!(calc.eval("2 3 *").unwrap(), 6);
+        assert_eq!(calc.eval("2 3 /").unwrap(), 0);
+        assert_eq!(calc.eval("2 3 %").unwrap(), 2);
+    }
 
-        assert_eq!(calc.eval("2 3 +"), 5);
-        assert_eq!(calc.eval("2 3 -"), -1);
-        assert_eq!(calc.eval("2 3 *"), 6);
-        assert_eq!(calc.eval("2 3 /"), 0);
-        assert_eq!(calc.eval("2 3 %"), 2);
-
-<<<<<<< HEAD
-        #[test]
-        #[should_panic]
-        fn test_ng() {
-            let calc = RPNCalculator::new(false);
-            calc.eval("1 1 ^");
-            // as long as RPNCalculator.eval returns panic for an inappropreate input
-            unreachable!();
-=======
     #[test]
-    #[should_panic]
     fn test_ng() {
         let calc = RPNCalculator::new(false);
-        calc.eval("1 1 ^");
-        // as long as RPNCalculator.eval returns panic for an inappropreate input
-        unreachable!();
->>>>>>> a0d366de6a72350efa0bbf24c556c3fcae18a20c
-        }
+        assert!(calc.eval("1 1 ^").is_err());
     }
 }
