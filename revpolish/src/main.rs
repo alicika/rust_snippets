@@ -1,6 +1,6 @@
 use clap::Parser;
 use std::fs::File;
-use std::io::{stdin, BufRead, BufReader};
+use std::io::{BufRead, BufReader};
 
 #[derive(Parser, Debug)]
 #[clap(
@@ -106,6 +106,7 @@ mod tests {
     fn test_ng() {
         let calc = RPNCalculator::new(false);
         calc.eval("1 1 ^");
+        calc.eval("");
         }
     }
 }
